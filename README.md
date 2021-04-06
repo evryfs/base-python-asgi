@@ -12,10 +12,12 @@ environment flags to control how the ASGI application is started.
 
 ### Available flags
 
-Flag             | Default           | Comment 
----------------- | ----------------- | ---------------------------------------------------
-UVICORN_PORT	 | 8000              | Application port.
-UVICORN_HOST     | 0.0.0.0           | Application bind address.
+Flag              | Default           | Comment 
+----------------- | ----------------- | ---------------------------------------------------
+UVICORN_PORT      | 8000              | Application port.
+UVICORN_HOST      | 0.0.0.0           | Application bind address.
+UVICORN_LOG_LEVEL | info              | Set uvicorn log level.
+CONTEXT_ROOT      | None              | Context root where application is served.
 
 ### Creating a Dockerfile
 
@@ -24,7 +26,7 @@ Dockerfile based on this. Then add your python sauce to the container and set
 the name of the ASGI module with `CMD ["module:callable"]`.
 
 ```dockerfile
-FROM quay.io/evryfs/base-python-asgi:3.8-stable
+FROM quay.io/evryfs/base-python-asgi:3.9-stable
 ARG BUILD_DATE
 ARG BUILD_URL
 ARG GIT_URL

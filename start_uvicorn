@@ -1,2 +1,7 @@
 #!/bin/bash
-uvicorn --port $UVICORN_PORT --host $UVICORN_HOST --log-level ${LOG_LEVEL:-info} $*
+if [ $CONTEXT_ROOT ]; then
+    ROOT="--root-path $CONTEXT_ROOT"
+else
+    ROOT=""
+fi
+uvicorn --port $UVICORN_PORT --host $UVICORN_HOST --log-level ${LOG_LEVEL:-info} $ROOT_PATH $*

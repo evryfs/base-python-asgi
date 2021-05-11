@@ -1,4 +1,4 @@
-FROM quay.io/evryfs/base-python:3.9.4
+FROM quay.io/evryfs/base-python:3.9.5
 ARG BUILD_DATE
 ARG BUILD_URL
 ARG GIT_URL

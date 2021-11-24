@@ -1,4 +1,4 @@
-FROM quay.io/evryfs/base-python:3.9.4
+FROM quay.io/evryfs/base-python:3.10.0
 ARG BUILD_DATE
 ARG BUILD_URL
 ARG GIT_URL
@@ -16,7 +16,7 @@ LABEL maintainer="Kristian Berg <kristian.berg@evry.com>" \
       org.opencontainers.image.source=$GIT_URL \
       org.opencontainers.image.version=$VERSION \
       org.opencontainers.image.revision=$GIT_COMMIT \
-      org.opencontainers.image.vendor="EVRY Financial Services" \
+      org.opencontainers.image.vendor="TietoEvry Financial Services" \
       org.opencontainers.image.licenses="proprietary-license" \
       org.opencontainers.image.description="Base image for ASGI apps using python $PY_VER with uvicorn $UVICORN_VERSION and gunicorn $GUNICORN_VERSION"
 

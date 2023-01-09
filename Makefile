@@ -15,6 +15,7 @@ all: latest push
 latest:
 	@echo "Building base-python-asgi with uvicorn $(UVICORN_VERSION)"
 	docker build . \
+		--pull \
 		-t evryfs/base-python-asgi:"$(VERSION)" \
 		-t evryfs/base-python-asgi:"$(PY_VER)"-stable \
 		-t quay.io/evryfs/base-python-asgi:"$(VERSION)" \

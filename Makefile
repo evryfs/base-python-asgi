@@ -7,8 +7,7 @@ GIT_COMMIT := $(shell git rev-parse HEAD)
 PY_VER := $(shell head -n1 Dockerfile|cut -d":" -f2|cut -d"-" -f1)
 PY_MINOR_VER := $(shell head -n1 Dockerfile|cut -d":" -f2|cut -d"-" -f1|cut -d"." -f1,2)
 UVICORN_VERSION ?= $(shell grep uvicorn requirements.txt|cut -d"=" -f3)
-GUNICORN_VERSION ?= $(shell grep gunicorn requirements.txt|cut -d"=" -f3)
-VERSION = "$(PY_VER)-$(UVICORN_VERSION)-$(GUNICORN_VERSION)"
+VERSION = "$(PY_VER)-$(UVICORN_VERSION)"
 
 all: latest push
 
@@ -23,7 +22,6 @@ latest:
 		-t quay.io/evryfs/base-python-asgi:"$(PY_MINOR_VER)"-stable \
 		-t quay.io/evryfs/base-python-asgi:stable \
 		--build-arg UVICORN_VERSION="$(UVICORN_VERSION)" \
-		--build-arg GUNICORN_VERSION="$(GUNICORN_VERSION)" \
 		--build-arg VERSION="$(VERSION)" \
 		--build-arg BUILD_DATE="$(BUILD_DATE)" \
 		--build-arg BUILD_URL="$(BUILD_URL)" \

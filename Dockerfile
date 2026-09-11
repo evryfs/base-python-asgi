@@ -1,4 +1,4 @@
-FROM quay.io/evryfs/base-python:3.13.3
+FROM quay.io/evryfs/base-python:3.14.7
 ARG BUILD_DATE
 ARG BUILD_URL
 ARG GIT_URL
@@ -7,7 +7,7 @@ ARG PY_VER
 ARG UVICORN_VERSION
 ARG GUNICORN_VERSION
 ARG VERSION
-LABEL maintainer="Kristian Berg <kristian.berg@evry.com>" \
+LABEL maintainer="Kristian Berg <kristian.berg@tietoevry.com>" \
   org.opencontainers.image.title="base-python-asgi" \
   org.opencontainers.image.created=$BUILD_DATE \
   org.opencontainers.image.authors="Kristian Berg <kristian.berg@tietoevry.com>" \
@@ -20,9 +20,9 @@ LABEL maintainer="Kristian Berg <kristian.berg@evry.com>" \
   org.opencontainers.image.licenses="proprietary-license" \
   org.opencontainers.image.description="Base image for ASGI apps using python $PY_VER with uvicorn $UVICORN_VERSION and gunicorn $GUNICORN_VERSION"
 
-ENV UVICORN_PORT 8000
-ENV UVICORN_HOST 0.0.0.0
-ENV CONTEXT_ROOT ""
+ENV UVICORN_PORT=8000
+ENV UVICORN_HOST=0.0.0.0
+ENV CONTEXT_ROOT=""
 USER root
 RUN apt-get update && \
   apt-get install -y gcc && \
